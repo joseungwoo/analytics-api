@@ -1,0 +1,20 @@
+service: maverick-analytics-api
+
+provider:
+        name: aws
+        stage: dev
+        region: ap-northeast-2
+
+plugins:
+        - serverless-offline
+
+functions:
+        feature-name_work-name:
+                runtime: nodejs12.x
+                # runtime: python3.7
+                handler: handlers/feature-name.workName
+                events:
+                        - http:
+                                method: get
+                                path: feature-name/work-name
+
