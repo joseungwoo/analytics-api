@@ -2,24 +2,16 @@ service: maverick-analytics-api
 
 provider:
         name: aws
-        stage: dev
+        stage: proc
         region: ap-northeast-2
 
 plugins:
         - serverless-offline
 
 functions:
-        node-function-example:
-                runtime: nodejs12.x
-                handler: handlers/nodejs-example.workName
-                events:
-                        - http:
-                                method: get
-                                path: nodejs/work-name
-        py-function-example:
-                runtime: python3.7
-                handler: handlers/py-example.handlerName
-                events:
-                        - http:
-                                method: post
-                                path: py-example/test
+        ${file(./functions/email-alert-server.yml)}
+        ${file(./functions/fingerprint-server.yml)}
+        ${file(./functions/id-server.yml)}
+        ${file(./functions/log-output-server.yml)}
+        ${file(./functions/policy-server.yml)}
+
