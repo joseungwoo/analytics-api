@@ -9,12 +9,17 @@ plugins:
         - serverless-offline
 
 functions:
-        feature-name_work-name:
+        node-function-example:
                 runtime: nodejs12.x
-                # runtime: python3.7
-                handler: handlers/feature-name.workName
+                handler: handlers/nodejs-example.workName
                 events:
                         - http:
                                 method: get
-                                path: feature-name/work-name
-
+                                path: nodejs/work-name
+        py-function-example:
+                runtime: python3.7
+                handler: handlers/py-example.handlerName
+                events:
+                        - http:
+                                method: post
+                                path: py-example/test

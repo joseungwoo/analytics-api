@@ -2,6 +2,6 @@
 
 module.exports.workName = async (evt) => ({
 	statusCode: 200,
-	body: JSON.stringify(evt),
+	body: '안녕하세',
 });
 
