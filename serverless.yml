@@ -1,0 +1,17 @@
+service: maverick-analytics-api
+
+provider:
+        name: aws
+        stage: proc
+        region: ap-northeast-2
+
+plugins:
+        - serverless-offline
+
+functions:
+        ${file(./functions/email-alert-server.yml)}
+        ${file(./functions/fingerprint-server.yml)}
+        ${file(./functions/id-server.yml)}
+        ${file(./functions/log-output-server.yml)}
+        ${file(./functions/policy-server.yml)}
+
